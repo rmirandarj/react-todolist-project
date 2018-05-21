@@ -1,11 +1,10 @@
 import React from "react";
-import TaskList from "./TaskList";
 
 const Task = function(props) {
 
   let todoBoxClass = "box todo-box"
 
-  if(props.taskData.completed == true) {
+  if(props.taskData.completed === true) {
     todoBoxClass = todoBoxClass + " todo-box-completed";
   } else {
     todoBoxClass = todoBoxClass + " todo-box-white";

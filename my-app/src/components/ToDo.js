@@ -36,10 +36,9 @@ class ToDo extends React.Component {
   }
 
   completeTask(taskIndex) {
-    const taskList = this.state.taskList;
     const localTaskList = this.state.taskList;
 
-    if(localTaskList[taskIndex].completed == false) {
+    if(localTaskList[taskIndex].completed === false) {
       localTaskList[taskIndex].completed = true;
     } else {
       localTaskList[taskIndex].completed = false;
@@ -53,6 +52,12 @@ class ToDo extends React.Component {
 
   removeTask (taskIndex) {
     const localTaskList = this.state.taskList;
+
+    if(localTaskList[taskIndex].completed === true){
+      alert("Esta tarefa está selecionada e não pode ser excluída.");
+      return;
+    }
+
     localTaskList.splice(taskIndex, 1);
 
     this.setState ({
